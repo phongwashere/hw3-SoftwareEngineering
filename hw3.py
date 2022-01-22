@@ -1,8 +1,12 @@
 # https://www.kite.com/python/answers/how-to-make-a-list-into-a-comma-separated-string-in-python
 # https://docs.python.org/3/library/math.html
 # https://stackoverflow.com/questions/35328953/how-to-compare-individual-characters-in-two-strings-in-python-3
+# https://blog.finxter.com/python-list-of-lists/
+# https://www.geeksforgeeks.org/writing-to-file-in-python/
+# 
 
 import math
+import os
 
 def vowels(input): # part 1
 	vowels = 0
@@ -42,3 +46,13 @@ print("The answer to part 3 is ")
 listOfStrings = ["pickle", "juice", "is", "sour"]
 csv(listOfStrings)
 
+def listOfLists(lol): # part 4
+	listComp = [x for l in lol for x in l] # using list comprehension to print list of lists as a single row
+	FileOutput = open("hw3-listOfLists.txt", "w+")
+	for element in listComp:
+		FileOutput.write(element)
+	actualFile = 'hw3-listOfLists.txt'
+	print("Path of the file: ", os.path.abspath(actualFile))
+
+a_list = [["I ","love "], ["eating ","medium "], ["rare ","steaks "]]
+listOfLists(a_list)
