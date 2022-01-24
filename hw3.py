@@ -39,17 +39,17 @@ def volume(radius, height): # part 2
 print("The answer to part 2 is: ")
 volume(5, 10)
 
-def csv(strings): # part 3
+def ToCSV(strings): # part 3
 	combinedString = ",".join(strings) # joins together the elements in the list of strings and removes the quotations
 	print(combinedString, "\n")
 
 print("The answer to part 3 is ")
 listOfStrings = ["pickle", "juice", "is", "sour"]
-csv(listOfStrings)
+ToCSV(listOfStrings)
 
 def listOfLists(lol): # part 4
 	listComp = [x for l in lol for x in l] # using list comprehension to print list of lists as a single row
-	FileOutput = open("hw3-listOfLists.txt", "w+") # opening or creating file
+	FileOutput = open("hw3-listOfLists.txt", "w") # opening or creating file
 	for element in listComp:
 		FileOutput.write(element) # writing elements of the list into file
 	FileOutput.close()
@@ -60,14 +60,14 @@ a_list = [["I ","love "], ["eating ","medium "], ["rare ","steaks "]]
 print("The answer to part 4 is: ")
 listOfLists(a_list)
 
-def csvToList(fileInput): # part 5 WIP
-	with open(fileInput) as file_a:
-		csv_reader = csv.reader(file_a)
-		listOfRows = list(csv_reader)
+def ToList(fileName): # part 5 WIP
+	with open(fileName) as file_a:
+		readFile = csv.reader(file_a)
+		listOfRows = list(readFile)
 		print(listOfRows)
 
-fileCSV = open("hw3-part5.csv", "w+")
-fileCSV.write("name,gpa,major\nPhong Vu,3.5,CS\nTina Martin,4.0,Biology\nJim Pain,2.8,History")
-fileCSV.close()
+file1 = open("hw3-part5.csv", "w")
+file1.write("name,gpa,major\nPhong Vu,3.5,CS\nTina Martin,4.0,Biology\nJim Pain,2.8,History")
+file1.close()
 fileName = 'hw3-part5.csv'
-csvToList(fileName)
+ToList(fileName)
