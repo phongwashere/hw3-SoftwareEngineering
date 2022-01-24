@@ -60,14 +60,37 @@ a_list = [["I ","love "], ["eating ","medium "], ["rare ","steaks "]]
 print("The answer to part 4 is: ")
 listOfLists(a_list)
 
-def ToList(fileName): # part 5 WIP
+def ToList(fileName): # part 5
 	with open(fileName) as file_a:
-		readFile = csv.reader(file_a)
-		listOfRows = list(readFile)
-		print(listOfRows)
+		readFile = csv.reader(file_a) # reading file data
+		listOfRows = list(readFile) # converting CSV to list
+		print(listOfRows, "\n")
 
-file1 = open("hw3-part5.csv", "w")
+file1 = open("hw3-part5.csv", "w") # creating CSV
 file1.write("name,gpa,major\nPhong Vu,3.5,CS\nTina Martin,4.0,Biology\nJim Pain,2.8,History")
 file1.close()
 fileName = 'hw3-part5.csv'
 ToList(fileName)
+
+def tryError(): # part 6
+    while True:
+        try:
+            x = int(input("Please enter the first number: \n")) # taking in inputs from the user
+            y = int(input("Please enter the second number: \n"))
+            print(x/y) # prints the answer to the division
+            break
+        except ZeroDivisionError: # catches a ZeroDivisionError to throw warning
+            print("Warning!!: This is a Zero Division Error!")
+
+tryError()
+
+def noDup(intList): # part 7
+    noDupList = [] # creating a second list to contain all elements without Dups
+    for i in intList:
+        if i not in noDupList: # checking if element is already in second list to ensure no dups
+            noDupList.append(i)
+    print("Original List: ", intList)
+    print("List without duplicates: ", noDupList, "\n")
+
+intList = [1,1,2,2,3,3,4,4,5,5] # original list with dups
+noDup(intList)
