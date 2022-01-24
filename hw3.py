@@ -4,6 +4,7 @@
 # https://blog.finxter.com/python-list-of-lists/
 # https://www.geeksforgeeks.org/writing-to-file-in-python/
 # https://www.geeksforgeeks.org/find-path-to-the-given-file-using-python/
+# https://stackoverflow.com/questions/14125781/new-folder-that-is-created-inside-the-current-directory
 
 import math
 import os
@@ -24,7 +25,7 @@ def vowels(input): # part 1
 	if(vowels == consonants):
 		return None
 
-print("The answer to part 1 is: ")
+print("#####The answer to part 1 is: ")
 if vowels("elephant") == True: # more vowels than consonants
 	print("True \n")
 if vowels("elephant") == False: # more consonants than vowels
@@ -36,14 +37,14 @@ def volume(radius, height): # part 2
 	volume = math.pi * height * math.pow(radius, 2) # pi x height x radius^2
 	print("Volume calculated from radius", radius, "and height", height, "equals", volume, "\n")
 
-print("The answer to part 2 is: ")
+print("#####The answer to part 2 is: ")
 volume(5, 10)
 
 def ToCSV(strings): # part 3
 	combinedString = ",".join(strings) # joins together the elements in the list of strings and removes the quotations
 	print(combinedString, "\n")
 
-print("The answer to part 3 is ")
+print("#####The answer to part 3 is ")
 listOfStrings = ["pickle", "juice", "is", "sour"]
 ToCSV(listOfStrings)
 
@@ -57,7 +58,7 @@ def listOfLists(lol): # part 4
 	print("Path of the file: ", os.path.abspath(actualFile), "\n") # grabbing path of file
 
 a_list = [["I ","love "], ["eating ","medium "], ["rare ","steaks "]]
-print("The answer to part 4 is: ")
+print("#####The answer to part 4 is: ")
 listOfLists(a_list)
 
 def ToList(fileName): # part 5
@@ -70,6 +71,7 @@ file1 = open("hw3-part5.csv", "w") # creating CSV
 file1.write("name,gpa,major\nPhong Vu,3.5,CS\nTina Martin,4.0,Biology\nJim Pain,2.8,History")
 file1.close()
 fileName = 'hw3-part5.csv'
+print("#####The answer to part 5 is: ")
 ToList(fileName)
 
 def tryError(): # part 6
@@ -77,11 +79,12 @@ def tryError(): # part 6
         try:
             x = int(input("Please enter the first number: \n")) # taking in inputs from the user
             y = int(input("Please enter the second number: \n"))
-            print(x/y) # prints the answer to the division
+            print(x/y, "\n") # prints the answer to the division
             break
         except ZeroDivisionError: # catches a ZeroDivisionError to throw warning
             print("Warning!!: This is a Zero Division Error!")
 
+print("#####The answer to part 6 is: ")
 tryError()
 
 def noDup(intList): # part 7
@@ -93,4 +96,17 @@ def noDup(intList): # part 7
     print("List without duplicates: ", noDupList, "\n")
 
 intList = [1,1,2,2,3,3,4,4,5,5] # original list with dups
+print("#####The answer to part 7 is: ")
 noDup(intList)
+
+def newFolder(): # part 8
+	currentDir = os.getcwd() # grabs the current working directory
+	finalDir = os.path.join(currentDir, r'hw3-folder') # sets variable that creates a folder in current directory
+	if not os.path.exists(finalDir): # checking if folder already exists
+		os.makedirs(finalDir)
+		print("has been completed \n")
+	else:
+		print("could not be created because it already exists \n")
+
+print("#####The answer to part 8: ")
+newFolder()
